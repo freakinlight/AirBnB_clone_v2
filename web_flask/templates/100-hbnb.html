@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Include CSS files -->
+</head>
+<body>
+    <div class="states">
+        <!-- Loop through states and cities -->
+        {% for state in states %}
+        <h3>{{ state.name }}</h3>
+        {% for city in cities if city.state_id == state.id %}
+        <h4>&nbsp;{{ city.name }}</h4>
+        {% endfor %}
+        {% endfor %}
+    </div>
+    <div class="amenities">
+        <!-- Loop through amenities -->
+        {% for amenity in amenities %}
+        <h3>{{ amenity.name }}</h3>
+        {% endfor %}
+    </div>
+    <div class="places">
+        <!-- Loop through places -->
+        {% for place in places %}
+        <div class="place">
+            <h3>{{ place.name }} <span class="price">${{ place.price_by_night }}</span></h3>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
